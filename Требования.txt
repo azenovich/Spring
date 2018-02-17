@@ -1,0 +1,14 @@
+Основные требования:
+- GitHub
+- UML, Use-Case, Activity Diagram
+- Tomcat
+- MySQL
+- принцип CRUD
+- MVC pattern
+- JUnit4/JUnit5
+- Генерация документов
+- Spring 4 or Spring 5
+-----------------------------------
+Дополнительные требования:
+- AngularJS
+- jQuery (Анимация)
