@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "speciality")
+@Table(name = "specialities")
 public class Speciality {
     @Id
     private int id;
@@ -19,4 +19,6 @@ public class Speciality {
             inverseJoinColumns = { @JoinColumn(name = "coursesDescription_id") }
     )
     private Set<CourseDescription> coursesDescription = new HashSet<>();
+    @OneToMany(mappedBy = "speciality")
+    private Set<Lesson> lessons = new HashSet<Lesson>();
 }

@@ -1,10 +1,9 @@
 package courses.models.entities;
 
-import courses.models.actors.Student;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -18,12 +17,31 @@ public class Course {
     private Date dateOut;
     @ManyToOne(optional = false)
     private CourseDescription description;
+    @Column(nullable = false)
+    private Date dateInInvite;
+    @Column(nullable = false)
+    private Date dateOutInvite;
+    @Column
+    private int studentsCount;
 
-    @ManyToMany()
-    @JoinTable(
-            name = "courses_students",
-            joinColumns = { @JoinColumn(name = "course_id") },
-            inverseJoinColumns = { @JoinColumn(name = "student_id") }
-    )
-    private Set<Student> students = new HashSet<>();
+    @OneToMany(mappedBy = "course")
+    private Set<CourseInvite> invites = new HashSet<CourseInvite>();
+    @OneToMany(mappedBy = "course")
+    private Set<Lesson> lessons = new HashSet<Lesson>();
+    @OneToMany(mappedBy = "course")
+    private Set<Certificate> certificates = new HashSet<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Course course = (Course) o;
+        return id == course.id;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
+    }
 }

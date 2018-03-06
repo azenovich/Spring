@@ -1,19 +1,16 @@
 package courses.models.actors;
 
 
-import org.hibernate.annotations.Type;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "employees")
-public class Employee extends Student {
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Employee extends Guest {
     @Column(nullable = false, length = 50)
     private String jobTitle;
-
+    @Column(nullable = false, length = 200)
+    private String professionalSkills;
     @Column(nullable = false)
     private float salary;
     @Column

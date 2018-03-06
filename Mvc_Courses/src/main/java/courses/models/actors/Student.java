@@ -1,10 +1,10 @@
 package courses.models.actors;
 
-import courses.models.entities.Course;
-import courses.models.entities.CourseDescription;
+import courses.models.entities.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -14,6 +14,22 @@ public class Student extends Guest{
     @Column(nullable = false, length = 200)
     private String professionalSkills;
 
-    @ManyToMany(mappedBy = "students")
-    private Set<Course> courses = new HashSet<Course>();
+    @OneToMany(mappedBy = "student")
+    private Set<CourseInvite> invites = new HashSet<CourseInvite>();
+    @OneToMany(mappedBy = "student")
+    private Set<Certificate> certificates = new HashSet<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return id == student.id;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id);
+    }
 }
