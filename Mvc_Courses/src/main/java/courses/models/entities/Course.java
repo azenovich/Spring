@@ -10,7 +10,8 @@ import java.util.Set;
 @Table(name = "courses")
 public class Course {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(nullable = false)
     private Date dateIn;
     @Column(nullable = false)

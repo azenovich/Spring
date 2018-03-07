@@ -8,7 +8,8 @@ import java.util.Set;
 @Table(name = "specialities")
 public class Speciality {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(nullable = false)
     private String name;
 

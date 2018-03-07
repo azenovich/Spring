@@ -12,7 +12,7 @@ import java.util.Set;
 @Entity
 @Table(name = "hrs")
 public class HR extends Employee {
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String workPhone;
 
     @OneToMany(mappedBy = "checkingHr")

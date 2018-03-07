@@ -2,16 +2,14 @@ package courses.models.entities;
 
 import courses.models.actors.Mentor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "lessons")
 public class Lesson {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne(optional = false)
     private Mentor mentor;

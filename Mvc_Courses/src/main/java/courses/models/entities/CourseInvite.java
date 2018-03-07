@@ -11,7 +11,8 @@ import java.util.Date;
 @Table(name = "courseInvites")
 public class CourseInvite {
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @Column(nullable = false)
     private Date filingDate;
 

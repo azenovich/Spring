@@ -11,7 +11,7 @@ import java.util.Set;
 @Table(name = "students")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Student extends Guest{
-    @Column(nullable = false, length = 200)
+    @Column(nullable = true, length = 200)
     private String professionalSkills;
 
     @OneToMany(mappedBy = "student")
