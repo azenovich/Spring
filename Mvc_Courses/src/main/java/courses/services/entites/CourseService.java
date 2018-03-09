@@ -1,4 +1,7 @@
 package courses.services.entites;
 
-public interface CourseService {
+import courses.models.entities.Course;
+import courses.services.Service;
+
+public interface CourseService extends Service<Course, Long> {
 }
