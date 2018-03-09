@@ -1,4 +1,4 @@
-package courses.services.actors;
+package courses.services;
 
 import java.util.List;
 

@@ -13,8 +13,6 @@ public class HomeController {
 
     @RequestMapping("/")
     public String index(Guest guest) {
-        Guest guest = new Guest();
-        guest.
 
         return "index";
     }
